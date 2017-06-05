@@ -22,6 +22,8 @@ def docker_pull():
 
 
 def run_in_docker(command):
+    # Flush here that the buffer is clear before the docker output comes.
+    print("Running commands in docker image...", flush=True)
     mounts = ['-v', android_location + ':/var/android', '-v', scripts_location + ':/scripts']
     s_command = ['docker', 'run', '--rm', '--net=host']
     s_command.extend(mounts)
