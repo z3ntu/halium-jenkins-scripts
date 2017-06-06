@@ -23,4 +23,4 @@ if [ ! -f "halium.rootfs.tar.gz" ]; then
     exit 1
 fi
 echo "rootfs is finished."
-cp halium.rootfs.tar.gz /out/$1-rootfs-$(date --iso).tar.gz
+cp halium.rootfs.tar.gz /out/$1-rootfs-$(date --utc +"%Y%m%d-%H%M%S").tar.gz
