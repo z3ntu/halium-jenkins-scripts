@@ -29,3 +29,4 @@ def run_in_docker(command):
     s_command.extend(mounts)
     s_command.extend([dockerimage, '/bin/bash', '-c', command])
     subprocess.run(s_command, check=True)
+
