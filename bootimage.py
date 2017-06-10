@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import sys
-import subprocess
 
 import common
 
@@ -22,11 +21,10 @@ if __name__ == '__main__':
 
     # Checkout the correct device in the local manifest
     common.checkout_device(sys.argv[1])
-#    common.sync()
+    # common.sync()
     common.docker_pull()
     common.run_in_docker('/scripts/build_bootimage.sh ' + sys.argv[2] + " eng")
-    
+
     bootimg = common.check_one_file_eixsts(common.out_location + '/halium-boot-*.img')
 
     common.move_to_workspace(bootimg, workspace)
-

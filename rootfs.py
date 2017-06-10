@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-import sys
 import os
+import sys
 
-import common_ubuntu
 import common
+import common_ubuntu
 
 if __name__ == '__main__':
     print(sys.argv)
@@ -29,4 +29,3 @@ if __name__ == '__main__':
 
     # Move to workspace folder for jenkins archiving
     common.move_to_workspace(rootfs, workspace)
-

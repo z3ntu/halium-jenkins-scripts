@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import sys
 import subprocess
+import sys
 
 import common
 
@@ -15,10 +15,9 @@ if __name__ == '__main__':
     common.clean_directory(common.out_location)
 
     common.checkout_device(sys.argv[1])
-#    common.sync()
+    # common.sync()
     common.docker_pull()
     common.run_in_docker('/scripts/build_systemimage.sh ' + sys.argv[2] + " eng")
 
     systemimg = common.check_one_file_exists(common.out_location + '/halium-system-*.img')
     common.move_to_workspace(systemimg, workspace)
-
