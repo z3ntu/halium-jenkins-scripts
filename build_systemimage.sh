@@ -9,3 +9,4 @@ if [ ! -f "$OUT/system.img" ]; then
     exit 1
 fi
 echo "\"mka systemimage\" is finished."
+cp "$OUT/system.img" /out/halium-system-$(date --utc +"%Y%m%d-%H%M%S").img
