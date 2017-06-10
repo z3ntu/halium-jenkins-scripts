@@ -25,6 +25,6 @@ if __name__ == '__main__':
     common.docker_pull()
     common.run_in_docker('/scripts/build_bootimage.sh ' + sys.argv[2] + " eng")
 
-    bootimg = common.check_one_file_eixsts(common.out_location + '/halium-boot-*.img')
+    bootimg = common.check_that_one_file_exists(common.out_location + '/halium-boot-*.img')
 
     common.move_to_workspace(bootimg, workspace)

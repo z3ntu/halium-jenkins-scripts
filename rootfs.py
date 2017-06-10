@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import os
 import sys
 
 import common
@@ -25,7 +24,7 @@ if __name__ == '__main__':
     common_ubuntu.run_in_docker('/scripts/build_rootfs.sh ' + sys.argv[1])
 
     # Check if file actually exists
-    rootfs = common.check_one_file_exists(common.out_location + '/' + sys.argv[1] + '-rootfs-*.tar.gz'
+    rootfs = common.check_that_one_file_exists(common.out_location + '/' + sys.argv[1] + '-rootfs-*.tar.gz')
 
     # Move to workspace folder for jenkins archiving
     common.move_to_workspace(rootfs, workspace)

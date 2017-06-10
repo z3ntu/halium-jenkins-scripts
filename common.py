@@ -5,6 +5,8 @@ import os
 import shutil
 import subprocess
 
+import sys
+
 out_location = "/build/halium/out"
 android_location = "/build/halium/android"
 scripts_location = os.path.dirname(os.path.realpath(__file__))
@@ -54,11 +56,11 @@ def clean_directory(directory):
 
 def check_that_one_file_exists(filepath):
     # Check if file actually exists
-    rootfs = glob.glob(filename)
-    if len(rootfs) != 1:
-        print("Too many or no file(s): " + str(rootfs))
+    file = glob.glob(filepath)
+    if len(file) != 1:
+        print("Too many or no file(s): " + str(file))
         sys.exit(1)
-    return rootfs[0]
+    return file[0]
 
 
 def move_to_workspace(filepath, workspace):
