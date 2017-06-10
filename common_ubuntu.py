@@ -9,10 +9,10 @@ scripts_location = os.path.dirname(os.path.realpath(__file__))
 dockerimage = "ubuntu:artful"
 
 def docker_pull():
-    subprocess.run(['docker', 'pull', dockerimage], check=True)
+    subprocess.check_call(['docker', 'pull', dockerimage])
 
 
 def run_in_docker(command):
     # Flush here that the buffer is clear before the docker output comes.
     print("Running commands in docker image...", flush=True)
-    subprocess.run(['docker', 'run', '--privileged', '--rm', '-v', scripts_location + ':/scripts', '-v', build_location + ':/build', '-v', out_location + ':/out', dockerimage, '/bin/bash', '-c', command], check=True)
+    subprocess.check_call(['docker', 'run', '--privileged', '--rm', '-v', scripts_location + ':/scripts', '-v', build_location + ':/build', '-v', out_location + ':/out', dockerimage, '/bin/bash', '-c', command])

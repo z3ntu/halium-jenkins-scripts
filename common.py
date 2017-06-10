@@ -9,16 +9,16 @@ dockerimage = "z3ntu/fairphone2-build-env-with-vim"
 
 def checkout_device(device):
     print("Fetching...")
-    subprocess.run(['git', '-C', android_location + '/.repo/local_manifests', 'fetch'], check=True)
+    subprocess.check_call(['git', '-C', android_location + '/.repo/local_manifests', 'fetch'])
     print("Checking out...")
-    subprocess.run(['git', '-C', android_location + '/.repo/local_manifests', 'checkout', device], check=True)
+    subprocess.check_call(['git', '-C', android_location + '/.repo/local_manifests', 'checkout', device])
 
 def sync():
     print("Syncing...")
-    subprocess.run(['repo', 'sync', '-j4', '-c'], cwd=android_location, check=True)
+    subprocess.check_call(['repo', 'sync', '-j4', '-c'], cwd=android_location)
 
 def docker_pull():
-    subprocess.run(['docker', 'pull', dockerimage], check=True)
+    subprocess.check_call(['docker', 'pull', dockerimage])
 
 
 def run_in_docker(command):
@@ -28,5 +28,5 @@ def run_in_docker(command):
     s_command = ['docker', 'run', '--rm', '--net=host']
     s_command.extend(mounts)
     s_command.extend([dockerimage, '/bin/bash', '-c', command])
-    subprocess.run(s_command, check=True)
+    subprocess.check_call(s_command)
 
