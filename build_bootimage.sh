@@ -11,3 +11,4 @@ if [ ! -f "$OUT/hybris-boot.img" ]; then
     exit 1
 fi
 echo "\"mka bootimage\" is finished."
+cp "$OUT/hybris-boot.img" /out/halium-boot-$(date --utc +"%Y%m%d-%H%M%S").img
