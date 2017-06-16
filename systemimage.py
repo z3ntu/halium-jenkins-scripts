@@ -14,7 +14,7 @@ if __name__ == '__main__':
     common.clean_directory(common.out_location)
 
     common.checkout_device(sys.argv[1])
-    # common.sync()
+    common.sync()
     common.docker_pull()
     common.run_in_docker('/scripts/build_systemimage.sh ' + sys.argv[2] + " eng")
 
