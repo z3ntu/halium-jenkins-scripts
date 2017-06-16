@@ -10,7 +10,7 @@ import sys
 out_location = "/build/halium/out"
 android_location = "/build/halium/android"
 scripts_location = os.path.dirname(os.path.realpath(__file__))
-dockerimage = "z3ntu/fairphone2-build-env-with-vim"
+dockerimage = "z3ntu/halium-5.1-build-env"
 
 
 def checkout_device(device):
