@@ -6,9 +6,11 @@ import common
 
 if __name__ == '__main__':
     print(sys.argv)
-    if not len(sys.argv) > 2:
-        print("Invalid usage: " + sys.argv[0] + " <branchname> <devicename>")
+    if not len(sys.argv) > 3:
+        print("Invalid usage: " + sys.argv[0] + " <branchname> <devicename> <halium-version>")
         sys.exit(1)
+
+    common.set_halium_version(sys.argv[3])
 
     # Get workspace location
     workspace = common.get_workspace_loc()

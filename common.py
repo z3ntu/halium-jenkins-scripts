@@ -8,10 +8,18 @@ import subprocess
 import sys
 
 out_location = "/build/halium/out"
-android_location = "/build/halium/android"
+base_android_location = "/build/halium/android-{0}"
+android_location = None
 scripts_location = os.path.dirname(os.path.realpath(__file__))
-dockerimage = "z3ntu/halium-5.1-build-env"
+base_dockerimage = "z3ntu/halium-{0}-build-env"
+dockerimage = None
 
+
+def set_halium_version(haliumver):
+    global android_location
+    android_location = base_android_location.format(haliumver)
+    global dockerimage
+    dockerimage = base_dockerimage.format(haliumver)
 
 def checkout_device(device):
     print("Fetching...")
